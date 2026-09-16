@@ -1,0 +1,135 @@
+/*
+  TEMPLATE STYLES: These styles are used as a base template.
+  AI is allowed to modify these styles as needed.
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background: hsl(var(--background));
+  overflow-x: clip;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Responsividad global */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Imágenes y media siempre responsivas */
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Tipografía mínima legible en móvil */
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Targets táctiles accesibles */
+button, a, [role="button"], input[type="checkbox"], input[type="radio"], label {
+  touch-action: manipulation;
+}
+
+/* Focus visible consistente para accesibilidad */
+:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Scrollbar discreta en contenedores con overflow-x */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.overflow-x-auto::-webkit-scrollbar {
+  height: 8px;
+}
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: rgb(203 213 225);
+  border-radius: 9999px;
+}
+
+@page {
+  size: letter;
+  margin: 0.5in;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .doc {
+    width: 100% !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+  .doc-block {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .doc-table {
+    page-break-inside: auto;
+  }
+  .doc-table tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .doc-table thead {
+    display: table-header-group;
+  }
+}
+
+/*
+  ---break---
+*/
+
+@layer base {
+  /*
+    Fluent 2 (Microsoft 365 / Windows 11) — tema único, claro.
+    Tokens tomados de la paleta real de Office UI Fabric / Fluent:
+    azul de marca #0078D4, grises neutrales, radios 4–8px.
+  */
+  :root, .dark {
+    --background: 30 20% 98%;
+    --foreground: 20 3% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 3% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 3% 12%;
+    --primary: 206 100% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 8% 95%;
+    --secondary-foreground: 20 3% 12%;
+    --muted: 30 7% 92%;
+    --muted-foreground: 20 2% 38%;
+    --accent: 30 8% 95%;
+    --accent-foreground: 20 3% 12%;
+    --destructive: 357 62% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 30 8% 87%;
+    --input: 30 8% 87%;
+    --ring: 206 100% 42%;
+    --radius: 0.5rem;
+    --good: 120 77% 27%;
+    --warning: 44 100% 24%;
+    --critical: 357 62% 40%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 20 2% 38%;
+    --sidebar-primary: 206 100% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 206 90% 94%;
+    --sidebar-accent-foreground: 206 100% 30%;
+    --sidebar-border: 30 8% 87%;
+    --sidebar-ring: 206 100% 42%;
+  }
+}

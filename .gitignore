@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# .NET build output
+apps/api/bin/
+apps/api/obj/
+
+# Vite / frontend build output
+apps/web/dist/
+apps/web/.vite/
+
+# Environment / secrets
+.env
+.env.*
+**/appsettings.*.local.json
+
+# Editor / OS
+.vs/
+.vscode/
+*.user
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Large binaries / exports (not project source)
+app.tar.gz
+horizons-export-*.zip
+
+# Business/administrative documents (not project source)
+Carta Oferta*.docx
+T-1527.pdf
+
+# Runtime scratch
+vault/temp/
