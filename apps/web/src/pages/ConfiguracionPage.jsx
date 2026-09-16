@@ -6,8 +6,6 @@ import AppLayout from '@/components/AppLayout';
 import { Seccion, Texto, Modal, btn, inputCls, useToastMsg } from '@/components/kit';
 import { getConfig, saveConfig } from '@/lib/db';
 
-const COLECCIONES_DEMO = ['cartas', 'ordenes', 'equipos', 'lugares', 'clientes', 'tecnicos'];
-
 export default function ConfiguracionPage() {
     const [general, setGeneral] = useState({});
     const [actividades, setActividades] = useState([]);
@@ -32,22 +30,6 @@ export default function ConfiguracionPage() {
             setToast('Configuración guardada');
         } catch (err) {
             setToast(err?.message || 'Error al guardar');
-        }
-    };
-
-    const borrarDemo = async () => {
-        try {
-            let total = 0;
-            for (const col of COLECCIONES_DEMO) {
-                const rows = await pb.collection(col).getFullList({ filter: 'demo = true' });
-                for (const r of rows) {
-                    await pb.collection(col).delete(r.id);
-                    total += 1;
-                }
-            }
-            setToast(`${total} registros de prueba eliminados`);
-        } catch (err) {
-            setToast(err?.message || 'No se pudieron eliminar los datos de prueba');
         }
     };
 
@@ -123,15 +105,6 @@ export default function ConfiguracionPage() {
                 />
 
                 <GestionTiposEquipo tipos={tipos} setTipos={setTipos} setToast={setToast} />
-
-                <Seccion title="Datos de prueba">
-                    <p className="mb-3 text-sm text-muted-foreground">
-                        Elimina el cliente, lugar, técnico, equipos, orden y carta oferta creados como datos de prueba.
-                    </p>
-                    <button type="button" className={btn.danger} onClick={borrarDemo}>
-                        <Trash2 className="h-4 w-4" /> Eliminar datos de prueba
-                    </button>
-                </Seccion>
             </div>
             {toast}
         </AppLayout>
